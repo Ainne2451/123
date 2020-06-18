@@ -675,7 +675,26 @@ def sendMulti(event):  #多項傳送
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 
+def sendButton3(event):  #按鈕樣版
+    try:
+        message = TemplateSendMessage(
+            alt_text='重要資訊',
+            template=ButtonsTemplate(
+                thumbnail_image_url='https://evernote.com/blog/wp-content/uploads/2016/08/Facebook_LinkImage_1200x627-copy-1-300x300.png',  #顯示的圖片
+                title=' ',  #主標題
+                text='重要資訊：',  #副標題
+                actions=[
+                    MessageTemplateAction(  #顯示文字計息
+                        label='最終受益人查詢',
+                        text='https://reurl.cc/lVAQl9'
+                    ),
 
+                ]
+            )
+        )
+        line_bot_api.reply_message(event.reply_token, message)
+    except:
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 
 def sendButton(event):  #按鈕樣版
     try:
@@ -723,7 +742,7 @@ def sendQuickreply(event):  #快速選單
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 
 
-def sendButton2(event):  #按鈕樣版
+def sendButtonb(event):  #按鈕樣版
     try:
         message = TemplateSendMessage(
             alt_text='防制洗錢小知識',
